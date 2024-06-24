@@ -3,8 +3,10 @@ import { Container, VStack, Heading, Text, Input, Button, List, ListItem, useToa
 import { FaDumbbell, FaTrash } from "react-icons/fa";
 
 const Index = () => {
+  const toast = useToast();
   const [workouts, setWorkouts] = useState([]);
   const [workoutDetails, setWorkoutDetails] = useState({ name: "", duration: "", date: "" });
+
   useEffect(() => {
     const storedWorkouts = JSON.parse(localStorage.getItem('workouts')) || [];
     setWorkouts(storedWorkouts);
@@ -47,7 +49,7 @@ const Index = () => {
     });
   };
 
-return (
+  return (
     <Container centerContent maxW="container.md" height="100vh" py={8}>
       <VStack spacing={8} align="stretch" w="100%">
         <Heading textAlign="center">
